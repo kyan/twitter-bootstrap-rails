@@ -68,6 +68,10 @@ module Bootstrap
         end
       end
 
+      def has_column? model_instance, column_name 
+        model_instance.columns.any? {|c| c.name == column_name.to_s}
+      end
+
       def excluded_columns_names
         %w[id created_at updated_at]
       end
