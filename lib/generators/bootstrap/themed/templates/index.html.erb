@@ -38,39 +38,3 @@
 <%%= link_to t('.new', :default => t("helpers.links.new")),
             new_<%= singular_controller_routing_path %>_path,
             :class => 'btn btn-primary' %>
-
-
-<div class="page-header">
-  <h1>Services</h1>
-  <%= link_to 'New', new_admin_service_path, :class => 'btn btn-primary' %>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Client name</th>
-      <th class="toogle">Publish</th>
-      <th class="position">Position</th>
-      <th class="actions">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @services.each do |service| %>
-      <tr>
-        <td><%= image_tag(service.image.admin_thumb) if service.image? %></td>
-        <td><%= link_to service.client_name, edit_admin_service_path(service) %></td>
-        <td><%=raw tick_widget service %></td>
-        <td><%=raw position_widget service %></td>
-        <td>
-          <%= link_to 'Edit', edit_admin_service_path(service), :class => 'btn btn-mini' %>
-          <%= link_to 'Delete',
-                      admin_service_path(service),
-                      :method => :delete,
-                      :data => { :confirm => 'Are you sure?' },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @services %>
