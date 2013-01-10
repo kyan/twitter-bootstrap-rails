@@ -38,6 +38,6 @@
     <%% end %>
   </tbody>
 </table>
-<%- if not has_column?(@model_name.constantize, :position) -%>
+<%- if !has_column?(@model_name.constantize, :position) -%>
 <%%= paginate @<%= plural_resource_name %> %>
 <%- end -%>
