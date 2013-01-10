@@ -7,9 +7,12 @@
   <thead>
     <tr>
       <th></th>
-      <%- if has_column?(@model_name.constantize, :publish) %>
+      <%- if has_column?(@model_name.constantize, :position) -%>
+      <th class="position">Position</th>
+      <%- end -%>
+      <%- if has_column?(@model_name.constantize, :publish) -%>
       <th class="toogle">Publish</th>
-      <%- end %>
+      <%- end -%>
       <th class="actions">Actions</th>
     </tr>
   </thead>
@@ -17,9 +20,12 @@
     <%% @<%= plural_resource_name %>.each do |<%= resource_name %>| %>
       <tr>
         <td><%%= link_to <%= resource_name %>.id, <%= singular_controller_routing_path %>_path(<%= resource_name %>) %></td>
-        <%- if has_column?(@model_name.constantize, :publish) %>
+        <%- if has_column?(@model_name.constantize, :position) -%>
+        <td><%=raw position_widget <%=resource_name %> %> %></td>
+        <%- end -%>
+        <%- if has_column?(@model_name.constantize, :publish) -%>
         <td><%%=raw tick_widget <%=resource_name %> %></td>
-        <%- end %>
+        <%- end -%>
         <td>
           <%%= link_to 'Edit', edit_admin_<%=resource_name %>_path(<%=resource_name %>), :class => 'btn btn-mini' %>
           <%%= link_to 'Delete',
@@ -32,4 +38,6 @@
     <%% end %>
   </tbody>
 </table>
+<%- if not has_column?(@model_name.constantize, :position) -%>
 <%%= paginate @<%= plural_resource_name %> %>
+<%- end -%>
