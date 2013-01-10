@@ -21,7 +21,7 @@
       <tr>
         <td><%%= link_to <%= resource_name %>.id, <%= singular_controller_routing_path %>_path(<%= resource_name %>) %></td>
         <%- if has_column?(@model_name.constantize, :position) -%>
-        <td><%=raw position_widget <%=resource_name %> %> %></td>
+        <td><%%=raw position_widget <%=resource_name %> %> %></td>
         <%- end -%>
         <%- if has_column?(@model_name.constantize, :publish) -%>
         <td><%%=raw tick_widget <%=resource_name %> %></td>
