@@ -54,14 +54,6 @@ module Bootstrap
         resource_name.pluralize
       end
 
-      def plural_human_resource_name
-        @model_name.demodulize.underscore.classify.model_name.human.pluralize
-      end
-
-      def human_resource_name
-        @model_name.demodulize.underscore.classify.model_name.human
-      end
-
       def columns
         retrieve_columns.reject {|c| excluded?(c.name) }.map do |c|
           new_attribute(c.name, c.type.to_s)
