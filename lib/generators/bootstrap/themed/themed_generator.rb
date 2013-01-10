@@ -55,10 +55,18 @@ module Bootstrap
       end
 
       def human_resource_instance
-        resource_instance.model_name.human
+        resource_instance.model_name.human.downcase
       end
 
-      def human_resource_instances
+      def title_human_resource_instances
+        resource_instance.model_name.human.pluralize
+      end
+
+      def human_resource_instance
+        resource_instance.model_name.human.downcase
+      end
+
+      def title_human_resource_instances
         resource_instance.model_name.human.pluralize
       end
 
