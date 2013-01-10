@@ -50,6 +50,10 @@ module Bootstrap
         @model_name.demodulize.underscore
       end
 
+      def resource_instance
+        @model_name.constantize
+      end
+
       def plural_resource_name
         resource_name.pluralize
       end
