@@ -55,11 +55,11 @@ module Bootstrap
       end
 
       def plural_human_resource_name
-        resource_name.pluralize.human
+        resource_name.classify.model_name.human.pluralize
       end
 
       def human_resource_name
-        resource_name.human
+        resource_name.classify.model_name.human
       end
 
       def columns
