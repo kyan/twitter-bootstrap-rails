@@ -51,15 +51,15 @@ module Bootstrap
       end
 
       def plural_resource_name
-        plural_model_name.human
+        resource_name.pluralize
       end
 
       def plural_human_resource_name
-        resource_name.human.pluralize
+        resource_name.pluralize.human
       end
 
       def human_resource_name
-        model_name.human
+        resource_name.human
       end
 
       def columns
