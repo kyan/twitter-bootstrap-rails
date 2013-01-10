@@ -54,6 +54,10 @@ module Bootstrap
         @model_name.constantize
       end
 
+      def human_resource_instance
+        resource_instance.model_name.human
+      end
+
       def human_resource_instances
         resource_instance.model_name.human.pluralize
       end
