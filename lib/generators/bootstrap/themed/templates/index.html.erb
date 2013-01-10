@@ -7,13 +7,19 @@
   <thead>
     <tr>
       <th></th>
-      <th><%%=t '.actions', :default => t("helpers.actions") %></th>
+      <%- if @model_name.constantize.responds_to? :publish %>
+      <th class="toogle">Publish</th>
+      <%- end %>
+      <th class="actions">Actions</th>
     </tr>
   </thead>
   <tbody>
     <%% @<%= plural_resource_name %>.each do |<%= resource_name %>| %>
       <tr>
         <td><%%= link_to <%= resource_name %>.id, <%= singular_controller_routing_path %>_path(<%= resource_name %>) %></td>
+        <%- if @model_name.constantize.responds_to? :publish %>
+        <td><%%=raw tick_widget <%=resource_name %> %></td>
+        <%- end %>
         <td>
           <%%= link_to 'Edit', edit_admin_<%=resource_name %>_path(<%=resource_name %>), :class => 'btn btn-mini' %>
           <%%= link_to 'Delete',
