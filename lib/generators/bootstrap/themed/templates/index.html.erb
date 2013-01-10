@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <th></th>
-      <%- if @model_name.constantize.responds_to? :publish %>
+      <%- if @model_name.constantize.respond_to? :publish %>
       <th class="toogle">Publish</th>
       <%- end %>
       <th class="actions">Actions</th>
