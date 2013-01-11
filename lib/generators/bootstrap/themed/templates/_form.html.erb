@@ -1,12 +1,14 @@
 <%%= simple_form_for [:admin, <%= resource_name %>], :html => { :class => 'form-horizontal' } do |f| %>
   <%- columns.each do |column| -%>
-  	<%- if resource_instance.new.send(column.name.to_sym).respond_to? :extension_white_list %>
-  	<%- if resource_instance.new.send(column.name.to_sym).extension_white_list.map(&:downcase).any? {|ext| ["jpg", "jpeg", "png", "gif"].include? ext } %>
+  	<%- if resource_instance.new.send(column.name.to_sym).respond_to? :extension_white_list -%>
+  	<%- if resource_instance.new.send(column.name.to_sym).extension_white_list.map(&:downcase).any? {|ext| ["jpg", "jpeg", "png", "gif"].include? ext } -%>
   	<%%= f.input :<%= column.name %>, :class => 'control-label', :as => :image_preview %>
-	<%- end %>
-  	<%- else %>
+  	<%- else -%>
+	<%%= f.input :<%= column.name %>, :class => 'control-label', :as => :document_preview %>
+	<%- end -%>
+  	<%- else -%>
     <%%= f.input :<%= column.name %>, :class => 'control-label' %>
-	<%- end %>
+	<%- end -%>
   <%- end -%>
   <div class="form-actions">
     <%%= f.button :submit, :class => 'btn-primary' %>
