@@ -2,12 +2,12 @@
   <%- columns.each do |column| -%>
   	<%- if resource_instance.new.send(column.name.to_sym).respond_to? :extension_white_list -%>
   	<%- if resource_instance.new.send(column.name.to_sym).extension_white_list.map(&:downcase).any? {|ext| ["jpg", "jpeg", "png", "gif"].include? ext } -%>
-  	<%%= f.input :<%= column.name %>, :class => 'control-label', :as => :image_preview %>
+  	<%%= f.input :<%= column.name %>, :as => :image_preview %>
   	<%- else -%>
-	<%%= f.input :<%= column.name %>, :class => 'control-label', :as => :document_preview %>
+	<%%= f.input :<%= column.name %>, :as => :document_preview %>
 	<%- end -%>
   	<%- else -%>
-    <%%= f.input :<%= column.name %>, :class => 'control-label' %>
+    <%%= f.input :<%= column.name %> %>
 	<%- end -%>
   <%- end -%>
   <div class="form-actions">
