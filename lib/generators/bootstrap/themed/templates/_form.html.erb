@@ -6,7 +6,9 @@
   	<%- else -%>
 	<%%= f.input :<%= column.name %>, :as => :document_preview %>
 	<%- end -%>
-  	<%- else -%>
+  	<%- elsif column.type == :text -%>
+    <%%= f.input :<%= column.name %>, :input_html => { :class => 'redactorbox' } %>
+	<%- else -%>
     <%%= f.input :<%= column.name %> %>
 	<%- end -%>
   <%- end -%>
