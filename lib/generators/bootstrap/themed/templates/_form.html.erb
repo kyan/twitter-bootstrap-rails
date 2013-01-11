@@ -1,4 +1,4 @@
-<%%= simple_form_for [:admin, <%= resource_name %>], :html => { :class => 'form-horizontal' } do |f| %>
+<%%= simple_form_for [:admin, @<%= resource_name %>], :html => { :class => 'form-horizontal' } do |f| %>
   <%- columns.each do |column| -%>
   	<%- if resource_instance.new.send(column.name.to_sym).respond_to? :extension_white_list -%>
   	<%- if resource_instance.new.send(column.name.to_sym).extension_white_list.map(&:downcase).any? {|ext| ["jpg", "jpeg", "png", "gif"].include? ext } -%>
