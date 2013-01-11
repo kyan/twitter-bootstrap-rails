@@ -4,7 +4,7 @@
     <%- if resource_instance.new.send(column.name.to_sym).extension_white_list.map(&:downcase).any? {|ext| ["jpg", "jpeg", "png", "gif"].include? ext } -%>
     <%%= f.input :<%= column.name %>, :as => :image_preview %>
     <%- else -%>
-  <%%= f.input :<%= column.name %>, :as => :document_preview %>
+    <%%= f.input :<%= column.name %>, :as => :document_preview %>
   <%- end -%>
     <%- elsif column.type == :text -%>
     <%%= f.input :<%= column.name %>, :as => :wysiwyg %>
