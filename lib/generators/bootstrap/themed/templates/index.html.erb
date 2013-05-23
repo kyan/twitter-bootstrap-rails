@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1><%= title_human_resource_instances %></h1>
-  <%%= link_to 'New', new_admin_<%=resource_name %>_path, :class => 'btn btn-primary' %>
+  <%%= link_to 'New', new_admin_<%= resource_name %>_path, :class => 'btn btn-primary' %>
 </div>
 <table class="table table-striped">
   <thead>
@@ -18,17 +18,18 @@
   <tbody>
     <%% @<%= plural_resource_name %>.each do |<%= resource_name %>| %>
       <tr>
-        <td><%%= link_to <%= resource_name %>.id, <%= edit_admin_<%=resource_name %>_path(<%=resource_name %>) %></td>
+        <td><%%= link_to <%= resource_name %>.id, edit_admin_<%= resource_name %>_path(<%= resource_name %>) %></td>
         <%- if has_column?(@model_name.constantize, :position) -%>
-        <td><%%=raw position_widget <%=resource_name %> %></td>
+        
+        <td><%%=raw position_widget <%= resource_name %> %></td>
         <%- end -%>
         <%- if has_column?(@model_name.constantize, :publish) -%>
-        <td><%%=raw tick_widget <%=resource_name %> %></td>
+        <td><%%=raw tick_widget <%= resource_name %> %></td>
         <%- end -%>
         <td>
-          <%%= link_to 'Edit', edit_admin_<%=resource_name %>_path(<%=resource_name %>), :class => 'btn btn-mini' %>
+          <%%= link_to 'Edit', edit_admin_<%= resource_name %>_path(<%= resource_name %>), :class => 'btn btn-mini' %>
           <%%= link_to 'Delete',
-                      admin_<%=resource_name %>_path(<%=resource_name %>),
+                      admin_<%= resource_name %>_path(<%= resource_name %>),
                       :method => :delete,
                       :data => { :confirm => 'Are you sure?' },
                       :class => 'btn btn-mini btn-danger' %>
